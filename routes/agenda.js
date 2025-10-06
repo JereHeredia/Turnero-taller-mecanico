@@ -29,7 +29,12 @@ router.get('/historial/:patente', (req, res) => {
   res.render('historial', { patente, historial });
 });
 
-
+router.get('/calendario', (req, res) => {
+  // turnos: array de objetos desde tu DB o memoria
+  res.render('calendario', {
+    turnosJSON: JSON.stringify(turnos || [])
+  });
+});
 
 
 

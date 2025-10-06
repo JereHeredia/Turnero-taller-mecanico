@@ -1,0 +1,146 @@
+/* ====== ESTILO GENERAL ====== */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* ====== BARRA SUPERIOR ====== */
+.navbar {
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #1e3a8a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  font-size: 11px;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar nav {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+/* ====== BOTONES ====== */
+.btn-ver-turnos {
+    margin-right:30px ;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-ver-turnos:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+
+/* ====== CONTENEDOR DEL CALENDARIO ====== */
+.calendar-container {
+  margin-top: 120px;
+  max-width: 90%;
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  font-size: small;
+}
+
+.calendar-container h2 {
+  text-align: center;
+  color: #1e3a8a;
+  font-size: 1.6em;
+  margin-bottom: 25px;
+  margin: 120px;
+}
+
+/* ====== ESTILOS DEL CALENDARIO (FullCalendar) ====== */
+.fc {
+  background-color: #110f85;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+}
+
+.fc-toolbar-title {
+  color: #1e3a8a;
+  font-size: 1.4em !important;
+  font-weight: bold;
+}
+
+.fc-button {
+  background-color: #2563eb !important;
+  border: none !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  padding: 6px 12px !important;
+  transition: background-color 0.3s ease;
+}
+
+.fc-button:hover {
+  background-color: #1d4ed8 !important;
+}
+
+.fc-daygrid-day:hover {
+  background-color: #f1f5ff;
+  cursor: pointer;
+}
+
+.fc-event {
+  background-color: #3b82f6 !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 500;
+  padding: 2px 4px;
+  border-radius: 5px;
+}
+
+.fc-day-today {
+  background-color: #e0e7ff !important;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar nav {
+    margin-top: 8px;
+  }
+
+  .btn-ver-turnos {
+    margin-top: 5px;
+  }
+
+  .calendar-container {
+    margin-top: 150px;
+    padding: 15px;
+  }
+
+  .fc-toolbar-title {
+    font-size: 1.1em !important;
+  }
+}

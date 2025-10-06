@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Turnos</title>
+
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/styleCalendario.css">
+</head>
+
+<body>
+
+    <!-- Barra superior -->
+    <header class="navbar">
+        <h1 class="logo">TALLER MECÁNICO</h1>
+        <nav>
+            <form action="/" method="GET" style="display:inline;">
+                <button type="submit" class="btn-ver-turnos">🏠 Asignar Turnos</button>
+            </form>
+            <form action="/agenda" method="GET" style="display:inline;">
+                <button type="submit" class="btn-ver-turnos">📋 Ver Lista</button>
+            </form>
+        </nav>
+    </header>
+
+    <!-- Contenedor del calendario -->
+    <div class="calendar-container" style="max-width: 90%; margin: 30px auto;">
+        <h2 style="text-align:center;">Calendario de Turnos</h2>
+        <div id="calendar"></div>
+    </div>
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarEl = document.getElementById('calendar');
+
+            // ✅ Datos seguros desde el servidor
+            const turnos = JSON.parse('<%= turnosJSON %>');
+            const events = turnos.map(turno => {
+                // Fecha y hora combinadas en formato ISO local
+                const fechaHora = `${turno.fecha}T${turno.hora}:00`; // YYYY-MM-DDTHH:MM:SS
+
+
+                return {
+                    title: `${turno.patente} - ${turno.nombre}`,
+                    start: fechaISO,
+                    allDay: false,
+                    extendedProps: {
+                        motivo: turno.motivo,
+                        telefono: turno.telefono,
+                        correo: turno.email
+                    }
+                };
+            });
+
+            // Inicializamos FullCalendar
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'es',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+
+
+                events: events,
+                eventClick: function (info) {
+                    const evento = info.event;
+                    const opcionesFecha = { day: '2-digit', month: '2-digit', year: 'numeric' };
+                    const opcionesHora = { hour: '2-digit', minute: '2-digit', hour12: false };
+
+                    const fechaFormateada = evento.start.toLocaleDateString('es-AR', opcionesFecha);
+                    const horaFormateada = evento.start.toLocaleTimeString('es-AR', opcionesHora);
+
+                    alert(
+                        "📅 Detalles del turno:\n\n" +
+                        "Cliente: " + evento.title + "\n" +
+                        "Motivo: " + evento.extendedProps.motivo + "\n" +
+                        "Teléfono: " + evento.extendedProps.telefono + "\n" +
+                        "Correo: " + evento.extendedProps.correo + "\n" +
+                        "Fecha: " + fechaFormateada + "\n" +
+                        "Hora: " + horaFormateada
+                    );
+                }
+            });
+
+            calendar.render();
+        });
+    </script>
+
+</body>
+
+</html>
