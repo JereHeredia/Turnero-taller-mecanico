@@ -8,7 +8,7 @@ let siguienteId = 1;
 router.post('/', (req, res) => {
   const nuevoTurno = {
     id: siguienteId++,
-    patente: req.body.patente.toUpperCase(),
+    patente: req.body.patente.toUpperCase().trim().replace(/\s/g, ''),
     nombre: req.body.nombre,
     email: req.body.email,
     telefono: req.body.telefono,
