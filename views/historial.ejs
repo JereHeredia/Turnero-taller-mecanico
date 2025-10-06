@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Vehículo</title>
+    <link rel="stylesheet" href="/stylesheets/styleAgenda.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <h1 class="logo">Historial de Vehículo - <%= patente %>
+        </h1>
+        <nav>
+            <form action="/" method="GET">
+                <button type="submit" class="btn-ver-turnos">⬅ ASIGNAR MAS TURNOS</button>
+            </form>
+        </nav>
+        <nav>
+            <form action="/agenda" method="GET">
+                <button type="submit" class="btn-ver-turnos">📋 Ver turnos agendados</button>
+            </form>
+        </nav>
+
+
+    </header>
+
+    <div class="turnos-container">
+        <h2>Historial de servicios para la patente: <%= patente %>
+        </h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>N° Orden</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Motivo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (historial && historial.length> 0) { %>
+                    <% historial.forEach(turno=> { %>
+                        <tr>
+                            <td>
+                                <%= turno.id %>
+                            </td>
+                            <td>
+                                <%= turno.nombre %>
+                            </td>
+                            <td>
+                                <%= turno.fecha %>
+                            </td>
+                            <td>
+                                <%= turno.hora %>
+                            </td>
+                            <td>
+                                <%= turno.motivo %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                            <% } else { %>
+                                <tr>
+                                    <td colspan="5">No hay historial para esta patente.</td>
+                                </tr>
+                                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

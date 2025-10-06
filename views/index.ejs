@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Turnos</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+
+<header class="navbar">
+  <h1 class="logo">AGENDA DE TURNOS</h1>
+  <nav>
+    <form action="/agenda" method="GET">
+      <button type="submit" class="btn-ver-turnos">📋 Ver turnos agendados</button>
+    </form>
+  </nav>
+</header>
+
+<body>
+
+
+
+  <div class="form-container">
+
+
+    <h2>Crear Turno</h2>
+    <form action="/agenda" method="POST">
+
+      <label>Patente:</label>
+      <input type="text" name="patente" required ><br>
+
+      <label>Nombre:</label>
+      <input type="text" name="nombre" required><br>
+
+      <label>Correo:</label>
+      <input type="email" name="email" required><br>
+
+      <label>Teléfono:</label>
+      <input type="text" name="telefono" required><br>
+
+      <label>Fecha de turno:</label>
+      <input type="date" name="fecha" required><br>
+
+      <label>Hora:</label>
+      <input type="time" name="hora" required><br>
+
+      <label>Motivo:</label>
+      <input type="text" name="motivo" required><br>
+
+      <button type="submit">Guardar Turno</button>
+    </form>
+
+
+  </div>
+
+  <td>
+
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turnos Agendados</title>
+  <link rel="stylesheet" href="/stylesheets/styleAgenda.css">
+</head>
+
+<header class="navbar">
+
+  <h1 class="logo">TALLER MECANICO</h1>
+  <nav>
+    <form action="/" method="GET">
+      <button type="submit" class="btn-ver-turnos">⬅ ASIGNAR MAS TURNOS</button>
+    </form>
+  </nav>
+
+
+</header>
+
+<body>
+
+
+
+
+
+  <div class="turnos-container">
+    <h2>Turnos Agendados</h2>
+    <table>
+      <thead>
+        <tr>
+
+          <th>Patente</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Teléfono</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Motivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (turnos && turnos.length> 0) { %>
+          <% turnos.forEach(turno=> { %>
+            <tr>
+
+              <td>
+                <a href="/agenda/historial/<%= turno.patente %>" class="link-patente">
+                  <%= turno.patente %>
+                </a>
+              </td>
+
+              <td>
+                <%= turno.nombre %>
+              </td>
+              <td>
+                <%= turno.email %>
+              </td>
+              <td>
+                <%= turno.telefono %>
+              </td>
+              <td>
+                <%= turno.fecha %>
+              </td>
+              <td>
+                <%= turno.hora %>
+              </td>
+              <td>
+                <%= turno.motivo %>
+              </td>
+            </tr>
+            <% }) %>
+              <% } else { %>
+                <tr>
+                  <td colspan="6">No hay turnos agendados</td>
+                </tr>
+                <% } %>
+      </tbody>
+    </table>
+  </div>
+
+
+</body>
+
+</html>

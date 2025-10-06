@@ -1,0 +1,149 @@
+/* Botón de turnos agendados */
+
+/* 🔝 Barra superior fija */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #797878;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* 🧱 Espacio para que el formulario no quede oculto bajo la barra */
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+
+  padding-top: 80px; /* 🔹 deja espacio debajo de la barra */
+}
+
+/* Logo o título */
+.logo {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Botón del menú */
+.btn-ver-turnos {
+  background-color: #28a745;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.btn-ver-turnos:hover {
+  background-color: #218838;
+}
+
+
+
+/* 🎯 Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #3d3d3d;
+  color: #333;
+  padding: 40px;
+}
+
+/* 🧩 Contenedor principal del formulario */
+.form-container {
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: #e4e4e4;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-top: 6px solid #007bff;
+}
+
+/* 🏷️ Título */
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+/* 📋 Etiquetas */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* ✏️ Campos de texto */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="time"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+/* Efecto al enfocar */
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* 💾 Botón principal */
+button {
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Hover del botón */
+button:hover {
+  background-color: #218838;
+}
+
+/* 📱 Responsivo */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  .form-container {
+    padding: 25px;
+  }
+
+  input,
+  button {
+    font-size: 14px;
+  }
+}
